@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lead Magnet Generator — Find the Perfect Entry Point to Your Offer</title>
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;700;800;900&family=Nunito+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --dark:         #14113A;
+    --dark2:        #1B1750;
+    --violet:       #6D28D9;
+    --pink:         #DB2777;
+    --cyan:         #0E7C86;
+    --teal:         #4DE8E0;
+    --gold:         #FFD166;
+    --orange:       #E2562D;
+    --body-text:    #4B4570;
+    --light-bg:     #F8F7FF;
+    --card-bg:      #F3F0FF;
+    --border:       #E0D9F7;
+    --white:        #FFFFFF;
+    --radius:       10px;
+    --heading-font: 'Be Vietnam Pro', sans-serif;
+    --body-font:    'Nunito Sans', sans-serif;
+  }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: var(--body-font); font-size: 16px;
+    background: var(--light-bg); color: var(--dark);
+    margin: 0; padding: 24px 16px 48px;
+    -webkit-font-smoothing: antialiased;
+  }
+  .page {
+    max-width: 780px; margin: 0 auto; background: var(--white);
+    border-radius: 16px; overflow: hidden;
+    box-shadow: 0 4px 32px rgba(20,17,58,0.12);
+  }
+  .header {
+    background: linear-gradient(135deg, #14113A 0%, #1B1750 100%);
+    padding: 40px 44px 32px; position: relative; overflow: hidden;
+    border-bottom: 3px solid var(--violet);
+  }
+  .header::after {
+    content: ''; position: absolute; bottom: -40px; right: -40px;
+    width: 180px; height: 180px; border-radius: 50%;
+    background: rgba(109,40,217,0.12);
+  }
+  .tool-tag {
+    font-family: var(--heading-font); font-size: 11px; font-weight: 700;
+    letter-spacing: 2px; text-transform: uppercase; color: var(--teal); margin-bottom: 8px;
+  }
+  .header h1 {
+    font-family: var(--heading-font); font-weight: 900; font-size: 30px;
+    color: var(--white); line-height: 1.15; margin-bottom: 8px;
+  }
+  .header-sub { font-size: 15px; color: #C7C2E8; line-height: 1.6; max-width: 480px; }
+  .body { padding: 36px 44px 44px; }
+  .section-title {
+    font-family: var(--heading-font); font-weight: 800; font-size: 11px;
+    letter-spacing: 1.5px; text-transform: uppercase; color: var(--violet); margin-bottom: 16px;
+  }
+  .field-group { margin-bottom: 20px; }
+  .field-label {
+    font-family: var(--heading-font); font-weight: 700; font-size: 14px;
+    color: var(--dark); margin-bottom: 6px; display: block;
+  }
+  .field-hint { font-size: 13px; color: var(--body-text); margin-bottom: 8px; line-height: 1.5; }
+  input[type="text"], textarea, select {
+    width: 100%; padding: 12px 14px; border: 1.5px solid var(--border);
+    border-radius: var(--radius); font-family: var(--body-font);
+    font-size: 15px; color: var(--dark); background: var(--light-bg); transition: border-color 0.2s;
+  }
+  input[type="text"]:focus, textarea:focus, select:focus {
+    outline: none; border-color: var(--violet); background: var(--white);
+  }
+  input::placeholder, textarea::placeholder { color: #B0A8CC; font-style: italic; }
+  textarea { resize: vertical; min-height: 90px; line-height: 1.6; }
+  select { appearance: none; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%234B4570' d='M6 8L1 3h10z'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 14px center; }
+  .btn-primary {
+    background: linear-gradient(90deg, #FFD166, #E2562D);
+    color: var(--dark); font-family: var(--heading-font); font-weight: 800;
+    font-size: 15px; letter-spacing: 0.04em; text-transform: uppercase;
+    border: none; border-radius: var(--radius); padding: 14px 32px;
+    cursor: pointer; width: 100%; margin-top: 8px; transition: opacity 0.2s;
+  }
+  .btn-primary:hover { opacity: 0.9; }
+  .btn-primary:disabled { opacity: 0.5; cursor: not-allowed; }
+  .btn-secondary {
+    background: transparent; color: var(--violet);
+    font-family: var(--heading-font); font-weight: 700; font-size: 14px;
+    border: 1.5px solid var(--violet); border-radius: var(--radius);
+    padding: 10px 24px; cursor: pointer; transition: all 0.2s;
+  }
+  .btn-secondary:hover { background: var(--card-bg); }
+  .error-box {
+    display: none; background: #FEF2F2; border: 1px solid #FECACA;
+    border-radius: 8px; padding: 12px 14px; font-size: 14px;
+    color: #DC2626; margin-top: 10px;
+  }
+  .error-box.show { display: block; }
+  .email-gate {
+    display: none; background: var(--card-bg);
+    border: 1.5px solid var(--border); border-radius: 12px; padding: 28px; margin-top: 8px;
+  }
+  .email-gate.show { display: block; }
+  .gate-title { font-family: var(--heading-font); font-size: 18px; font-weight: 800; color: var(--dark); margin-bottom: 8px; }
+  .gate-sub { font-size: 14px; color: var(--body-text); margin-bottom: 16px; line-height: 1.6; }
+  .gate-row { display: flex; gap: 10px; }
+  .gate-input {
+    flex: 1; padding: 12px 14px; border: 1.5px solid var(--border);
+    border-radius: var(--radius); font-family: var(--body-font);
+    font-size: 15px; color: var(--dark); background: var(--white);
+  }
+  .gate-input:focus { outline: none; border-color: var(--violet); }
+  .gate-input::placeholder { color: #B0A8CC; font-style: italic; }
+  .gate-error { display: none; font-size: 13px; color: #DC2626; margin-top: 8px; }
+  .gate-error.show { display: block; }
+  .loading { display: none; text-align: center; padding: 48px 0; }
+  .loading.show { display: block; }
+  .spinner {
+    width: 44px; height: 44px; border: 4px solid var(--border);
+    border-top-color: var(--violet); border-radius: 50%;
+    animation: spin 0.8s linear infinite; margin: 0 auto 16px;
+  }
+  @keyframes spin { to { transform: rotate(360deg); } }
+  .loading-step {
+    font-family: var(--heading-font); font-size: 14px; font-weight: 700; color: var(--violet); margin-bottom: 6px;
+  }
+  .loading-sub { font-size: 13px; color: #B0A8CC; margin-top: 6px; }
+  .results { display: none; }
+  .results.show { display: block; }
+  .result-section {
+    background: var(--card-bg); border-radius: 12px;
+    border: 1px solid var(--border); padding: 24px; margin-bottom: 20px;
+  }
+  .result-label {
+    font-family: var(--heading-font); font-weight: 800; font-size: 11px;
+    letter-spacing: 1.5px; text-transform: uppercase; color: var(--cyan); margin-bottom: 12px;
+  }
+  .result-highlight {
+    background: linear-gradient(135deg, #14113A, #1B1750);
+    color: var(--white); border-radius: 10px; padding: 20px 24px; margin-bottom: 16px;
+    font-family: var(--heading-font); font-size: 18px; font-weight: 800;
+    line-height: 1.4; border-left: 4px solid var(--pink);
+  }
+  .result-body { font-size: 15px; color: var(--body-text); line-height: 1.7; white-space: pre-wrap; }
+  .step-badge {
+    display: inline-block; background: linear-gradient(90deg, #DB2777, #6D28D9);
+    color: var(--white); font-family: var(--heading-font); font-size: 11px; font-weight: 800;
+    letter-spacing: 1px; text-transform: uppercase; padding: 4px 12px; border-radius: 20px; margin-bottom: 12px;
+  }
+  .action-row { display: flex; gap: 12px; margin-top: 24px; flex-wrap: wrap; }
+  @media (max-width: 600px) {
+    .header { padding: 28px 22px 24px; }
+    .body { padding: 24px 20px 32px; }
+    .gate-row { flex-direction: column; }
+    .action-row { flex-direction: column; }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+  <div class="header">
+    <div class="tool-tag">NOVA — Digital Ease Studio</div>
+    <h1>Find Your Perfect Lead Magnet</h1>
+    <div class="header-sub">Tell me about your paid offer and your audience. I will find the best entry point into it and design a lead-gen tool that feeds it with warm, ready-to-buy leads.</div>
+  </div>
+  <div class="body">
+    <div id="form-section">
+      <div class="section-title">About Your Offer</div>
+      <div class="field-group">
+        <label class="field-label" for="offer">What is your paid offer?</label>
+        <div class="field-hint">Describe what you sell and what transformation it delivers. One or two sentences is fine.</div>
+        <textarea id="offer" placeholder="e.g. A 6-week course that teaches online coaches how to build and sell a signature programme without a big audience"></textarea>
+      </div>
+      <div class="field-group">
+        <label class="field-label" for="audience">Who is your specific audience?</label>
+        <div class="field-hint">Who is this offer for? Be as specific as you can.</div>
+        <input type="text" id="audience" placeholder="e.g. service-based coaches who want to move from 1:1 to group offers">
+      </div>
+      <div class="field-group">
+        <label class="field-label" for="price">What does your offer cost?</label>
+        <select id="price">
+          <option value="">Select a price range</option>
+          <option value="under $100">Under $100</option>
+          <option value="$100 to $500">$100 to $500</option>
+          <option value="$500 to $1,500">$500 to $1,500</option>
+          <option value="$1,500 to $5,000">$1,500 to $5,000</option>
+          <option value="$5,000+">$5,000+</option>
+        </select>
+      </div>
+      <div class="field-group">
+        <label class="field-label" for="objection">What is the biggest reason people do not buy? <span style="font-weight:400;color:var(--body-text);">(optional)</span></label>
+        <div class="field-hint">The most common objection or hesitation your audience has before they invest.</div>
+        <input type="text" id="objection" placeholder="e.g. they are not sure they have a big enough audience yet">
+      </div>
+      <div id="error-box" class="error-box">Please fill in your offer and audience before continuing.</div>
+      <button class="btn-primary" onclick="handleSubmit()">Find My Lead Magnet →</button>
+    </div>
+    <div class="email-gate" id="email-gate">
+      <div class="gate-title">Your lead magnet concept is almost ready...</div>
+      <div class="gate-sub">Enter your email and I will design your custom AI lead-gen tool in two steps.</div>
+      <div class="gate-row">
+        <input type="email" class="gate-input" id="gate-email" placeholder="your@email.com">
+        <button class="btn-primary" id="gate-btn" onclick="handleGate()" style="width:auto;">Generate Mine →</button>
+      </div>
+      <div class="gate-error" id="gate-error">Please enter a valid email address.</div>
+    </div>
+    <div class="loading" id="loading">
+      <div class="spinner"></div>
+      <div class="loading-step">Step 1 of 2: Identifying your best entry point...</div>
+      <div class="loading-sub">This takes about 15 to 20 seconds.</div>
+    </div>
+    <div class="results" id="results">
+      <div class="result-section">
+        <div class="step-badge">Step 1 — The Entry Point</div>
+        <div class="result-label">The best way into your offer</div>
+        <div class="result-highlight" id="result-entry"></div>
+        <div class="result-body" id="result-entry-body"></div>
+      </div>
+      <div class="result-section">
+        <div class="step-badge">Step 2 — Your Lead Magnet Tool</div>
+        <div class="result-label">Your custom AI lead-gen tool concept</div>
+        <div class="result-body" id="result-tool"></div>
+      </div>
+      <div class="action-row">
+        <button class="btn-secondary" onclick="downloadResults()">Download My Results</button>
+        <button class="btn-secondary" onclick="resetTool()">Start Over</button>
+      </div>
+    </div>
+  </div>
+</div>
+<script>
+let pendingInput = null;
+function handleSubmit() {
+  const offer = document.getElementById('offer').value.trim();
+  const audience = document.getElementById('audience').value.trim();
+  const price = document.getElementById('price').value;
+  const objection = document.getElementById('objection').value.trim();
+  const errorBox = document.getElementById('error-box');
+  errorBox.classList.remove('show');
+  if (!offer || !audience) { errorBox.classList.add('show'); return; }
+  pendingInput = 'Paid offer: ' + offer + '\nAudience: ' + audience + (price ? '\nPrice point: ' + price : '') + (objection ? '\nBiggest objection: ' + objection : '');
+  document.getElementById('form-section').style.display = 'none';
+  document.getElementById('email-gate').classList.add('show');
+}
+async function handleGate() {
+  const email = document.getElementById('gate-email').value.trim();
+  const gateError = document.getElementById('gate-error');
+  const gateBtn = document.getElementById('gate-btn');
+  gateError.classList.remove('show');
+  if (!email || !email.includes('@')) { gateError.classList.add('show'); return; }
+  gateBtn.disabled = true; gateBtn.textContent = 'Generating...';
+  document.getElementById('email-gate').classList.remove('show');
+  document.getElementById('loading').classList.add('show');
+  // CUSTOMIZE: add email capture here — see Module 4 Lesson 4.5
+  // await captureEmail(email);
+  try {
+    const response = await fetch('/api/generate', {
+      method: 'POST', headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ userInput: pendingInput })
+    });
+    const result = await response.json();
+    if (!response.ok) throw new Error(result.error || 'Error');
+    displayResults(result);
+  } catch (err) {
+    document.getElementById('loading').classList.remove('show');
+    document.getElementById('form-section').style.display = 'block';
+    const eb = document.getElementById('error-box');
+    eb.textContent = 'Something went wrong. Please try again.'; eb.classList.add('show');
+    gateBtn.disabled = false; gateBtn.textContent = 'Generate Mine →';
+  }
+}
+function displayResults(r) {
+  document.getElementById('loading').classList.remove('show');
+  document.getElementById('result-entry').textContent = r.entry_point || '';
+  document.getElementById('result-entry-body').textContent = r.entry_context || '';
+  document.getElementById('result-tool').textContent = r.tool_concept || '';
+  document.getElementById('results').classList.add('show');
+  window.scrollTo(0, 0);
+}
+function downloadResults() {
+  const entry = document.getElementById('result-entry').textContent;
+  const entryBody = document.getElementById('result-entry-body').textContent;
+  const tool = document.getElementById('result-tool').textContent;
+
+  const content = [
+    'LEAD MAGNET GENERATOR — YOUR RESULTS',
+    'Generated by Digital Ease Studio — jadejanosi.com',
+    '',
+    '─────────────────────────────────────',
+    'STEP 1 — THE BEST ENTRY POINT INTO YOUR OFFER',
+    '─────────────────────────────────────',
+    entry,
+    '',
+    entryBody,
+    '',
+    '─────────────────────────────────────',
+    'STEP 2 — YOUR CUSTOM AI LEAD MAGNET TOOL',
+    '─────────────────────────────────────',
+    tool
+  ].join('\n');
+
+  const blob = new Blob([content], { type: 'text/plain' });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url;
+  a.download = 'my-lead-magnet-concept.txt';
+  a.click();
+  URL.revokeObjectURL(url);
+}
+
+function resetTool() {
+  document.getElementById('results').classList.remove('show');
+  document.getElementById('form-section').style.display = 'block';
+  ['offer','audience','objection','gate-email'].forEach(function(id) { var el = document.getElementById(id); if (el) el.value = ''; });
+  document.getElementById('price').value = '';
+  document.getElementById('gate-btn').disabled = false;
+  document.getElementById('gate-btn').textContent = 'Generate Mine →';
+}
+</script>
+</body>
+</html>
