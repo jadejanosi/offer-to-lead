@@ -1,324 +1,668 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Lead Magnet Generator — Find the Perfect Entry Point to Your Offer</title>
-<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;700;800;900&family=Nunito+Sans:wght@400;600;700&display=swap" rel="stylesheet">
-<style>
-  :root {
-    --dark:         #14113A;
-    --dark2:        #1B1750;
-    --violet:       #6D28D9;
-    --pink:         #DB2777;
-    --cyan:         #0E7C86;
-    --teal:         #4DE8E0;
-    --gold:         #FFD166;
-    --orange:       #E2562D;
-    --body-text:    #4B4570;
-    --light-bg:     #F8F7FF;
-    --card-bg:      #F3F0FF;
-    --border:       #E0D9F7;
-    --white:        #FFFFFF;
-    --radius:       10px;
-    --heading-font: 'Be Vietnam Pro', sans-serif;
-    --body-font:    'Nunito Sans', sans-serif;
-  }
-  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-  body {
-    font-family: var(--body-font); font-size: 16px;
-    background: var(--light-bg); color: var(--dark);
-    margin: 0; padding: 24px 16px 48px;
-    -webkit-font-smoothing: antialiased;
-  }
-  .page {
-    max-width: 780px; margin: 0 auto; background: var(--white);
-    border-radius: 16px; overflow: hidden;
-    box-shadow: 0 4px 32px rgba(20,17,58,0.12);
-  }
-  .header {
-    background: linear-gradient(135deg, #14113A 0%, #1B1750 100%);
-    padding: 40px 44px 32px; position: relative; overflow: hidden;
-    border-bottom: 3px solid var(--violet);
-  }
-  .header::after {
-    content: ''; position: absolute; bottom: -40px; right: -40px;
-    width: 180px; height: 180px; border-radius: 50%;
-    background: rgba(109,40,217,0.12);
-  }
-  .tool-tag {
-    font-family: var(--heading-font); font-size: 11px; font-weight: 700;
-    letter-spacing: 2px; text-transform: uppercase; color: var(--teal); margin-bottom: 8px;
-  }
-  .header h1 {
-    font-family: var(--heading-font); font-weight: 900; font-size: 30px;
-    color: var(--white); line-height: 1.15; margin-bottom: 8px;
-  }
-  .header-sub { font-size: 15px; color: #C7C2E8; line-height: 1.6; max-width: 480px; }
-  .body { padding: 36px 44px 44px; }
-  .section-title {
-    font-family: var(--heading-font); font-weight: 800; font-size: 11px;
-    letter-spacing: 1.5px; text-transform: uppercase; color: var(--violet); margin-bottom: 16px;
-  }
-  .field-group { margin-bottom: 20px; }
-  .field-label {
-    font-family: var(--heading-font); font-weight: 700; font-size: 14px;
-    color: var(--dark); margin-bottom: 6px; display: block;
-  }
-  .field-hint { font-size: 13px; color: var(--body-text); margin-bottom: 8px; line-height: 1.5; }
-  input[type="text"], textarea, select {
-    width: 100%; padding: 12px 14px; border: 1.5px solid var(--border);
-    border-radius: var(--radius); font-family: var(--body-font);
-    font-size: 15px; color: var(--dark); background: var(--light-bg); transition: border-color 0.2s;
-  }
-  input[type="text"]:focus, textarea:focus, select:focus {
-    outline: none; border-color: var(--violet); background: var(--white);
-  }
-  input::placeholder, textarea::placeholder { color: #B0A8CC; font-style: italic; }
-  textarea { resize: vertical; min-height: 90px; line-height: 1.6; }
-  select { appearance: none; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%234B4570' d='M6 8L1 3h10z'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 14px center; }
-  .btn-primary {
-    background: linear-gradient(90deg, #FFD166, #E2562D);
-    color: var(--dark); font-family: var(--heading-font); font-weight: 800;
-    font-size: 15px; letter-spacing: 0.04em; text-transform: uppercase;
-    border: none; border-radius: var(--radius); padding: 14px 32px;
-    cursor: pointer; width: 100%; margin-top: 8px; transition: opacity 0.2s;
-  }
-  .btn-primary:hover { opacity: 0.9; }
-  .btn-primary:disabled { opacity: 0.5; cursor: not-allowed; }
-  .btn-secondary {
-    background: transparent; color: var(--violet);
-    font-family: var(--heading-font); font-weight: 700; font-size: 14px;
-    border: 1.5px solid var(--violet); border-radius: var(--radius);
-    padding: 10px 24px; cursor: pointer; transition: all 0.2s;
-  }
-  .btn-secondary:hover { background: var(--card-bg); }
-  .error-box {
-    display: none; background: #FEF2F2; border: 1px solid #FECACA;
-    border-radius: 8px; padding: 12px 14px; font-size: 14px;
-    color: #DC2626; margin-top: 10px;
-  }
-  .error-box.show { display: block; }
-  .email-gate {
-    display: none; background: var(--card-bg);
-    border: 1.5px solid var(--border); border-radius: 12px; padding: 28px; margin-top: 8px;
-  }
-  .email-gate.show { display: block; }
-  .gate-title { font-family: var(--heading-font); font-size: 18px; font-weight: 800; color: var(--dark); margin-bottom: 8px; }
-  .gate-sub { font-size: 14px; color: var(--body-text); margin-bottom: 16px; line-height: 1.6; }
-  .gate-row { display: flex; gap: 10px; }
-  .gate-input {
-    flex: 1; padding: 12px 14px; border: 1.5px solid var(--border);
-    border-radius: var(--radius); font-family: var(--body-font);
-    font-size: 15px; color: var(--dark); background: var(--white);
-  }
-  .gate-input:focus { outline: none; border-color: var(--violet); }
-  .gate-input::placeholder { color: #B0A8CC; font-style: italic; }
-  .gate-error { display: none; font-size: 13px; color: #DC2626; margin-top: 8px; }
-  .gate-error.show { display: block; }
-  .loading { display: none; text-align: center; padding: 48px 0; }
-  .loading.show { display: block; }
-  .spinner {
-    width: 44px; height: 44px; border: 4px solid var(--border);
-    border-top-color: var(--violet); border-radius: 50%;
-    animation: spin 0.8s linear infinite; margin: 0 auto 16px;
-  }
-  @keyframes spin { to { transform: rotate(360deg); } }
-  .loading-step {
-    font-family: var(--heading-font); font-size: 14px; font-weight: 700; color: var(--violet); margin-bottom: 6px;
-  }
-  .loading-sub { font-size: 13px; color: #B0A8CC; margin-top: 6px; }
-  .results { display: none; }
-  .results.show { display: block; }
-  .result-section {
-    background: var(--card-bg); border-radius: 12px;
-    border: 1px solid var(--border); padding: 24px; margin-bottom: 20px;
-  }
-  .result-label {
-    font-family: var(--heading-font); font-weight: 800; font-size: 11px;
-    letter-spacing: 1.5px; text-transform: uppercase; color: var(--cyan); margin-bottom: 12px;
-  }
-  .result-highlight {
-    background: linear-gradient(135deg, #14113A, #1B1750);
-    color: var(--white); border-radius: 10px; padding: 20px 24px; margin-bottom: 16px;
-    font-family: var(--heading-font); font-size: 18px; font-weight: 800;
-    line-height: 1.4; border-left: 4px solid var(--pink);
-  }
-  .result-body { font-size: 15px; color: var(--body-text); line-height: 1.7; white-space: pre-wrap; }
-  .step-badge {
-    display: inline-block; background: linear-gradient(90deg, #DB2777, #6D28D9);
-    color: var(--white); font-family: var(--heading-font); font-size: 11px; font-weight: 800;
-    letter-spacing: 1px; text-transform: uppercase; padding: 4px 12px; border-radius: 20px; margin-bottom: 12px;
-  }
-  .action-row { display: flex; gap: 12px; margin-top: 24px; flex-wrap: wrap; }
-  @media (max-width: 600px) {
-    .header { padding: 28px 22px 24px; }
-    .body { padding: 24px 20px 32px; }
-    .gate-row { flex-direction: column; }
-    .action-row { flex-direction: column; }
-  }
-</style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>30-Day Content Calendar Generator</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=Open+Sans:wght@400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --teal-dark: #0d4f4f;
+      --teal-mid: #1a7a6e;
+      --teal-light: #2aada0;
+      --teal-pale: #e6f6f5;
+      --teal-accent: #3ec9bb;
+      --white: #ffffff;
+      --gray-light: #f7fafa;
+      --gray-text: #4a5568;
+      --gray-muted: #718096;
+    }
+
+    body {
+      font-family: 'Open Sans', sans-serif;
+      background: var(--gray-light);
+      color: var(--gray-text);
+      min-height: 100vh;
+    }
+
+    header {
+      background: linear-gradient(135deg, var(--teal-dark) 0%, var(--teal-mid) 100%);
+      padding: 48px 24px 40px;
+      text-align: center;
+      color: var(--white);
+    }
+
+    header h1 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(2rem, 5vw, 3rem);
+      font-weight: 700;
+      line-height: 1.2;
+      margin-bottom: 12px;
+    }
+
+    header p {
+      font-size: 1rem;
+      opacity: 0.88;
+      max-width: 520px;
+      margin: 0 auto;
+      line-height: 1.6;
+    }
+
+    .container {
+      max-width: 680px;
+      margin: 0 auto;
+      padding: 40px 24px 60px;
+    }
+
+    /* QUIZ */
+    #quiz-section { display: block; }
+    #email-section { display: none; }
+    #results-section { display: none; }
+
+    .progress-bar {
+      display: flex;
+      gap: 6px;
+      margin-bottom: 32px;
+    }
+
+    .progress-step {
+      flex: 1;
+      height: 4px;
+      border-radius: 2px;
+      background: #d1e8e7;
+      transition: background 0.3s;
+    }
+
+    .progress-step.active { background: var(--teal-light); }
+    .progress-step.done { background: var(--teal-dark); }
+
+    .question-card {
+      background: var(--white);
+      border-radius: 16px;
+      padding: 36px 32px;
+      box-shadow: 0 2px 16px rgba(13,79,79,0.08);
+      display: none;
+    }
+
+    .question-card.active { display: block; }
+
+    .question-number {
+      font-size: 0.75rem;
+      font-weight: 600;
+      color: var(--teal-light);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-bottom: 10px;
+    }
+
+    .question-text {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.55rem;
+      font-weight: 600;
+      color: var(--teal-dark);
+      line-height: 1.3;
+      margin-bottom: 24px;
+    }
+
+    .options {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .option-btn {
+      background: var(--teal-pale);
+      border: 2px solid transparent;
+      border-radius: 10px;
+      padding: 14px 18px;
+      text-align: left;
+      cursor: pointer;
+      font-family: 'Open Sans', sans-serif;
+      font-size: 0.92rem;
+      color: var(--teal-dark);
+      font-weight: 500;
+      transition: all 0.2s;
+      line-height: 1.4;
+    }
+
+    .option-btn:hover {
+      border-color: var(--teal-light);
+      background: #d0f0ee;
+    }
+
+    .option-btn.selected {
+      border-color: var(--teal-mid);
+      background: #c2ebe8;
+    }
+
+    .nav-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: 28px;
+    }
+
+    .back-btn {
+      background: none;
+      border: none;
+      color: var(--gray-muted);
+      font-size: 0.88rem;
+      cursor: pointer;
+      padding: 8px 0;
+      font-family: 'Open Sans', sans-serif;
+    }
+
+    .back-btn:hover { color: var(--teal-dark); }
+
+    .next-btn {
+      background: var(--teal-mid);
+      color: var(--white);
+      border: none;
+      border-radius: 8px;
+      padding: 12px 28px;
+      font-family: 'Open Sans', sans-serif;
+      font-size: 0.92rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+
+    .next-btn:hover { background: var(--teal-dark); }
+    .next-btn:disabled { background: #b0cece; cursor: not-allowed; }
+
+    /* EMAIL GATE */
+    .email-card {
+      background: var(--white);
+      border-radius: 16px;
+      padding: 40px 32px;
+      box-shadow: 0 2px 16px rgba(13,79,79,0.08);
+      text-align: center;
+    }
+
+    .email-card .icon {
+      font-size: 2.8rem;
+      margin-bottom: 16px;
+    }
+
+    .email-card h2 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.9rem;
+      font-weight: 700;
+      color: var(--teal-dark);
+      margin-bottom: 10px;
+    }
+
+    .email-card p {
+      color: var(--gray-muted);
+      font-size: 0.92rem;
+      line-height: 1.6;
+      margin-bottom: 28px;
+      max-width: 400px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .email-input {
+      width: 100%;
+      padding: 14px 16px;
+      border: 2px solid #d1e8e7;
+      border-radius: 10px;
+      font-family: 'Open Sans', sans-serif;
+      font-size: 0.95rem;
+      color: var(--gray-text);
+      margin-bottom: 14px;
+      outline: none;
+      transition: border-color 0.2s;
+    }
+
+    .email-input:focus { border-color: var(--teal-light); }
+
+    .submit-btn {
+      width: 100%;
+      background: linear-gradient(135deg, var(--teal-mid), var(--teal-light));
+      color: var(--white);
+      border: none;
+      border-radius: 10px;
+      padding: 15px;
+      font-family: 'Open Sans', sans-serif;
+      font-size: 1rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: opacity 0.2s;
+    }
+
+    .submit-btn:hover { opacity: 0.9; }
+    .submit-btn:disabled { opacity: 0.6; cursor: not-allowed; }
+
+    .privacy-note {
+      font-size: 0.75rem;
+      color: var(--gray-muted);
+      margin-top: 12px;
+    }
+
+    /* RESULTS */
+    .results-header {
+      background: var(--white);
+      border-radius: 16px;
+      padding: 28px 32px;
+      box-shadow: 0 2px 16px rgba(13,79,79,0.08);
+      margin-bottom: 24px;
+      text-align: center;
+    }
+
+    .results-header h2 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: var(--teal-dark);
+      margin-bottom: 6px;
+    }
+
+    .results-header p {
+      color: var(--gray-muted);
+      font-size: 0.88rem;
+    }
+
+    .loading-state {
+      text-align: center;
+      padding: 60px 20px;
+    }
+
+    .spinner {
+      width: 48px;
+      height: 48px;
+      border: 4px solid var(--teal-pale);
+      border-top-color: var(--teal-light);
+      border-radius: 50%;
+      animation: spin 0.9s linear infinite;
+      margin: 0 auto 20px;
+    }
+
+    @keyframes spin { to { transform: rotate(360deg); } }
+
+    .loading-state p {
+      color: var(--teal-mid);
+      font-size: 0.95rem;
+      font-weight: 500;
+    }
+
+    .calendar-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .week-label {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: var(--teal-dark);
+      padding: 8px 0 4px;
+      border-bottom: 2px solid var(--teal-pale);
+      margin-top: 8px;
+    }
+
+    .day-card {
+      background: var(--white);
+      border-radius: 12px;
+      padding: 18px 20px;
+      box-shadow: 0 1px 8px rgba(13,79,79,0.06);
+      border-left: 4px solid var(--teal-light);
+    }
+
+    .day-card .day-header {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 8px;
+    }
+
+    .day-number {
+      background: var(--teal-dark);
+      color: var(--white);
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      font-size: 0.78rem;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .day-type {
+      font-size: 0.72rem;
+      font-weight: 600;
+      color: var(--teal-light);
+      text-transform: uppercase;
+      letter-spacing: 0.07em;
+    }
+
+    .day-idea {
+      font-size: 0.9rem;
+      color: var(--gray-text);
+      line-height: 1.5;
+      font-weight: 500;
+    }
+
+    .day-hook {
+      font-size: 0.82rem;
+      color: var(--gray-muted);
+      line-height: 1.4;
+      margin-top: 6px;
+      font-style: italic;
+    }
+
+    .cta-box {
+      background: linear-gradient(135deg, var(--teal-dark), var(--teal-mid));
+      border-radius: 16px;
+      padding: 32px;
+      text-align: center;
+      color: var(--white);
+      margin-top: 32px;
+    }
+
+    .cta-box h3 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.6rem;
+      font-weight: 700;
+      margin-bottom: 10px;
+    }
+
+    .cta-box p {
+      opacity: 0.88;
+      font-size: 0.9rem;
+      margin-bottom: 20px;
+      line-height: 1.6;
+    }
+
+    .cta-btn {
+      display: inline-block;
+      background: var(--white);
+      color: var(--teal-dark);
+      padding: 13px 28px;
+      border-radius: 8px;
+      font-weight: 700;
+      font-size: 0.92rem;
+      text-decoration: none;
+      transition: opacity 0.2s;
+    }
+
+    .cta-btn:hover { opacity: 0.9; }
+
+    .error-msg {
+      color: #e53e3e;
+      font-size: 0.85rem;
+      margin-top: 8px;
+      display: none;
+    }
+
+    @media (max-width: 480px) {
+      .question-card, .email-card { padding: 28px 20px; }
+      header { padding: 36px 20px 30px; }
+    }
+  </style>
 </head>
 <body>
-<div class="page">
-  <div class="header">
-    <div class="tool-tag">NOVA — Digital Ease Studio</div>
-    <h1>Find Your Perfect Lead Magnet</h1>
-    <div class="header-sub">Tell me about your paid offer and your audience. I will find the best entry point into it and design a lead-gen tool that feeds it with warm, ready-to-buy leads.</div>
+
+<header>
+  <h1>Your 30-Day Content Calendar</h1>
+  <p>Answer 5 quick questions and get a personalized content plan built for your digital product business.</p>
+</header>
+
+<div class="container">
+
+  <!-- QUIZ -->
+  <div id="quiz-section">
+    <div class="progress-bar" id="progress-bar">
+      <div class="progress-step active" id="step-0"></div>
+      <div class="progress-step" id="step-1"></div>
+      <div class="progress-step" id="step-2"></div>
+      <div class="progress-step" id="step-3"></div>
+      <div class="progress-step" id="step-4"></div>
+    </div>
+
+    <!-- Q1 -->
+    <div class="question-card active" id="q0">
+      <div class="question-number">Question 1 of 5</div>
+      <div class="question-text">What best describes your digital product niche?</div>
+      <div class="options">
+        <button class="option-btn" onclick="selectOption(0, 0, this)">AI tools & automation</button>
+        <button class="option-btn" onclick="selectOption(0, 1, this)">Digital marketing & ads</button>
+        <button class="option-btn" onclick="selectOption(0, 2, this)">Online business & passive income</button>
+        <button class="option-btn" onclick="selectOption(0, 3, this)">Content creation & social media</button>
+      </div>
+      <div class="nav-row">
+        <span></span>
+        <button class="next-btn" id="next-0" onclick="nextQuestion(0)" disabled>Next →</button>
+      </div>
+    </div>
+
+    <!-- Q2 -->
+    <div class="question-card" id="q1">
+      <div class="question-number">Question 2 of 5</div>
+      <div class="question-text">Where are you right now in your business?</div>
+      <div class="options">
+        <button class="option-btn" onclick="selectOption(1, 0, this)">Just getting started — no products yet</button>
+        <button class="option-btn" onclick="selectOption(1, 1, this)">I have products but I'm not making consistent sales</button>
+        <button class="option-btn" onclick="selectOption(1, 2, this)">I'm making some sales and want to scale</button>
+        <button class="option-btn" onclick="selectOption(1, 3, this)">I'm growing and want to build more authority</button>
+      </div>
+      <div class="nav-row">
+        <button class="back-btn" onclick="prevQuestion(1)">← Back</button>
+        <button class="next-btn" id="next-1" onclick="nextQuestion(1)" disabled>Next →</button>
+      </div>
+    </div>
+
+    <!-- Q3 -->
+    <div class="question-card" id="q2">
+      <div class="question-number">Question 3 of 5</div>
+      <div class="question-text">What's your main platform right now?</div>
+      <div class="options">
+        <button class="option-btn" onclick="selectOption(2, 0, this)">Instagram</button>
+        <button class="option-btn" onclick="selectOption(2, 1, this)">TikTok</button>
+        <button class="option-btn" onclick="selectOption(2, 2, this)">Pinterest</button>
+        <button class="option-btn" onclick="selectOption(2, 3, this)">Multiple / just starting out</button>
+      </div>
+      <div class="nav-row">
+        <button class="back-btn" onclick="prevQuestion(2)">← Back</button>
+        <button class="next-btn" id="next-2" onclick="nextQuestion(2)" disabled>Next →</button>
+      </div>
+    </div>
+
+    <!-- Q4 -->
+    <div class="question-card" id="q3">
+      <div class="question-number">Question 4 of 5</div>
+      <div class="question-text">How many times a week can you realistically post?</div>
+      <div class="options">
+        <button class="option-btn" onclick="selectOption(3, 0, this)">1–2 times (low-key, sustainable)</button>
+        <button class="option-btn" onclick="selectOption(3, 1, this)">3–4 times (solid consistency)</button>
+        <button class="option-btn" onclick="selectOption(3, 2, this)">5–7 times (I'm ready to go all in)</button>
+      </div>
+      <div class="nav-row">
+        <button class="back-btn" onclick="prevQuestion(3)">← Back</button>
+        <button class="next-btn" id="next-3" onclick="nextQuestion(3)" disabled>Next →</button>
+      </div>
+    </div>
+
+    <!-- Q5 -->
+    <div class="question-card" id="q4">
+      <div class="question-number">Question 5 of 5</div>
+      <div class="question-text">What's your biggest goal for the next 30 days?</div>
+      <div class="options">
+        <button class="option-btn" onclick="selectOption(4, 0, this)">Grow my audience and get more followers</button>
+        <button class="option-btn" onclick="selectOption(4, 1, this)">Build trust and show up as an authority</button>
+        <button class="option-btn" onclick="selectOption(4, 2, this)">Drive sales and conversions</button>
+        <button class="option-btn" onclick="selectOption(4, 3, this)">All of the above — a mix of everything</button>
+      </div>
+      <div class="nav-row">
+        <button class="back-btn" onclick="prevQuestion(4)">← Back</button>
+        <button class="next-btn" id="next-4" onclick="showEmailGate()" disabled>Get My Calendar →</button>
+      </div>
+    </div>
   </div>
-  <div class="body">
-    <div id="form-section">
-      <div class="section-title">About Your Offer</div>
-      <div class="field-group">
-        <label class="field-label" for="offer">What is your paid offer?</label>
-        <div class="field-hint">Describe what you sell and what transformation it delivers. One or two sentences is fine.</div>
-        <textarea id="offer" placeholder="e.g. A 6-week course that teaches online coaches how to build and sell a signature programme without a big audience"></textarea>
-      </div>
-      <div class="field-group">
-        <label class="field-label" for="audience">Who is your specific audience?</label>
-        <div class="field-hint">Who is this offer for? Be as specific as you can.</div>
-        <input type="text" id="audience" placeholder="e.g. service-based coaches who want to move from 1:1 to group offers">
-      </div>
-      <div class="field-group">
-        <label class="field-label" for="price">What does your offer cost?</label>
-        <select id="price">
-          <option value="">Select a price range</option>
-          <option value="under $100">Under $100</option>
-          <option value="$100 to $500">$100 to $500</option>
-          <option value="$500 to $1,500">$500 to $1,500</option>
-          <option value="$1,500 to $5,000">$1,500 to $5,000</option>
-          <option value="$5,000+">$5,000+</option>
-        </select>
-      </div>
-      <div class="field-group">
-        <label class="field-label" for="objection">What is the biggest reason people do not buy? <span style="font-weight:400;color:var(--body-text);">(optional)</span></label>
-        <div class="field-hint">The most common objection or hesitation your audience has before they invest.</div>
-        <input type="text" id="objection" placeholder="e.g. they are not sure they have a big enough audience yet">
-      </div>
-      <div id="error-box" class="error-box">Please fill in your offer and audience before continuing.</div>
-      <button class="btn-primary" onclick="handleSubmit()">Find My Lead Magnet →</button>
+
+  <!-- EMAIL GATE -->
+  <div id="email-section">
+    <div class="email-card">
+      <div class="icon">🗓️</div>
+      <h2>Your calendar is ready!</h2>
+      <p>Drop your email below and we'll send it straight to you — plus tips on actually using it to grow.</p>
+      <input type="email" id="email-input" class="email-input" placeholder="your@email.com" />
+      <div class="error-msg" id="email-error">Please enter a valid email address.</div>
+      <button class="submit-btn" id="submit-btn" onclick="submitEmail()">Show Me My Calendar →</button>
+      <p class="privacy-note">No spam. Unsubscribe anytime.</p>
     </div>
-    <div class="email-gate" id="email-gate">
-      <div class="gate-title">Your lead magnet concept is almost ready...</div>
-      <div class="gate-sub">Enter your email and I will design your custom AI lead-gen tool in two steps.</div>
-      <div class="gate-row">
-        <input type="email" class="gate-input" id="gate-email" placeholder="your@email.com">
-        <button class="btn-primary" id="gate-btn" onclick="handleGate()" style="width:auto;">Generate Mine →</button>
-      </div>
-      <div class="gate-error" id="gate-error">Please enter a valid email address.</div>
-    </div>
-    <div class="loading" id="loading">
+  </div>
+
+  <!-- RESULTS -->
+  <div id="results-section">
+    <div id="loading-state" class="loading-state">
       <div class="spinner"></div>
-      <div class="loading-step">Step 1 of 2: Identifying your best entry point...</div>
-      <div class="loading-sub">This takes about 15 to 20 seconds.</div>
+      <p>Building your personalized 30-day calendar...</p>
     </div>
-    <div class="results" id="results">
-      <div class="result-section">
-        <div class="step-badge">Step 1 — The Entry Point</div>
-        <div class="result-label">The best way into your offer</div>
-        <div class="result-highlight" id="result-entry"></div>
-        <div class="result-body" id="result-entry-body"></div>
+    <div id="calendar-output" style="display:none;">
+      <div class="results-header">
+        <h2>Your 30-Day Content Plan ✨</h2>
+        <p id="results-subtitle">Personalized for your niche and goals</p>
       </div>
-      <div class="result-section">
-        <div class="step-badge">Step 2 — Your Lead Magnet Tool</div>
-        <div class="result-label">Your custom AI lead-gen tool concept</div>
-        <div class="result-body" id="result-tool"></div>
-      </div>
-      <div class="action-row">
-        <button class="btn-secondary" onclick="downloadResults()">Download My Results</button>
-        <button class="btn-secondary" onclick="resetTool()">Start Over</button>
+      <div class="calendar-grid" id="calendar-grid"></div>
+      <div class="cta-box">
+        <h3>Want content that actually writes itself?</h3>
+        <p>Digital Ease Studio gives you AI-powered content tools built specifically for moms selling digital products online.</p>
+        <a href="https://jadejanosi.com/digital-ease-studio/" class="cta-btn" target="_blank">Try Digital Ease Studio →</a>
       </div>
     </div>
   </div>
+
 </div>
+
 <script>
-let pendingInput = null;
-function handleSubmit() {
-  const offer = document.getElementById('offer').value.trim();
-  const audience = document.getElementById('audience').value.trim();
-  const price = document.getElementById('price').value;
-  const objection = document.getElementById('objection').value.trim();
-  const errorBox = document.getElementById('error-box');
-  errorBox.classList.remove('show');
-  if (!offer || !audience) { errorBox.classList.add('show'); return; }
-  pendingInput = 'Paid offer: ' + offer + '\nAudience: ' + audience + (price ? '\nPrice point: ' + price : '') + (objection ? '\nBiggest objection: ' + objection : '');
-  document.getElementById('form-section').style.display = 'none';
-  document.getElementById('email-gate').classList.add('show');
-}
-async function handleGate() {
-  const email = document.getElementById('gate-email').value.trim();
-  const gateError = document.getElementById('gate-error');
-  const gateBtn = document.getElementById('gate-btn');
-  gateError.classList.remove('show');
-  if (!email || !email.includes('@')) { gateError.classList.add('show'); return; }
-  gateBtn.disabled = true; gateBtn.textContent = 'Generating...';
-  document.getElementById('email-gate').classList.remove('show');
-  document.getElementById('loading').classList.add('show');
-  // CUSTOMIZE: add email capture here — see Module 4 Lesson 4.5
-  // await captureEmail(email);
-  try {
-    const response = await fetch('/api/generate', {
-      method: 'POST', headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ userInput: pendingInput })
-    });
-    const result = await response.json();
-    if (!response.ok) throw new Error(result.error || 'Error');
-    displayResults(result);
-  } catch (err) {
-    document.getElementById('loading').classList.remove('show');
-    document.getElementById('form-section').style.display = 'block';
-    const eb = document.getElementById('error-box');
-    eb.textContent = 'Something went wrong. Please try again.'; eb.classList.add('show');
-    gateBtn.disabled = false; gateBtn.textContent = 'Generate Mine →';
+  const answers = [null, null, null, null, null];
+  const optionLabels = [
+    ['AI tools & automation', 'Digital marketing & ads', 'Online business & passive income', 'Content creation & social media'],
+    ['Just getting started', 'Have products, inconsistent sales', 'Making sales, want to scale', 'Growing, building authority'],
+    ['Instagram', 'TikTok', 'Pinterest', 'Multiple / just starting'],
+    ['1–2x/week', '3–4x/week', '5–7x/week'],
+    ['Grow audience', 'Build trust & authority', 'Drive sales', 'Mix of everything']
+  ];
+
+  function selectOption(qIndex, optIndex, btn) {
+    const card = document.getElementById('q' + qIndex);
+    card.querySelectorAll('.option-btn').forEach(b => b.classList.remove('selected'));
+    btn.classList.add('selected');
+    answers[qIndex] = optionLabels[qIndex][optIndex];
+    document.getElementById('next-' + qIndex).disabled = false;
   }
-}
-function displayResults(r) {
-  document.getElementById('loading').classList.remove('show');
-  document.getElementById('result-entry').textContent = r.entry_point || '';
-  document.getElementById('result-entry-body').textContent = r.entry_context || '';
-  document.getElementById('result-tool').textContent = r.tool_concept || '';
-  document.getElementById('results').classList.add('show');
-  window.scrollTo(0, 0);
-}
-function downloadResults() {
-  const entry = document.getElementById('result-entry').textContent;
-  const entryBody = document.getElementById('result-entry-body').textContent;
-  const tool = document.getElementById('result-tool').textContent;
 
-  const content = [
-    'LEAD MAGNET GENERATOR — YOUR RESULTS',
-    'Generated by Digital Ease Studio — jadejanosi.com',
-    '',
-    '─────────────────────────────────────',
-    'STEP 1 — THE BEST ENTRY POINT INTO YOUR OFFER',
-    '─────────────────────────────────────',
-    entry,
-    '',
-    entryBody,
-    '',
-    '─────────────────────────────────────',
-    'STEP 2 — YOUR CUSTOM AI LEAD MAGNET TOOL',
-    '─────────────────────────────────────',
-    tool
-  ].join('\n');
+  function nextQuestion(current) {
+    document.getElementById('q' + current).classList.remove('active');
+    const next = current + 1;
+    document.getElementById('q' + next).classList.add('active');
+    updateProgress(next);
+  }
 
-  const blob = new Blob([content], { type: 'text/plain' });
-  const url = URL.createObjectURL(blob);
-  const a = document.createElement('a');
-  a.href = url;
-  a.download = 'my-lead-magnet-concept.txt';
-  a.click();
-  URL.revokeObjectURL(url);
-}
+  function prevQuestion(current) {
+    document.getElementById('q' + current).classList.remove('active');
+    const prev = current - 1;
+    document.getElementById('q' + prev).classList.add('active');
+    updateProgress(prev);
+  }
 
-function resetTool() {
-  document.getElementById('results').classList.remove('show');
-  document.getElementById('form-section').style.display = 'block';
-  ['offer','audience','objection','gate-email'].forEach(function(id) { var el = document.getElementById(id); if (el) el.value = ''; });
-  document.getElementById('price').value = '';
-  document.getElementById('gate-btn').disabled = false;
-  document.getElementById('gate-btn').textContent = 'Generate Mine →';
-}
+  function updateProgress(active) {
+    for (let i = 0; i < 5; i++) {
+      const step = document.getElementById('step-' + i);
+      step.classList.remove('active', 'done');
+      if (i < active) step.classList.add('done');
+      else if (i === active) step.classList.add('active');
+    }
+  }
+
+  function showEmailGate() {
+    document.getElementById('quiz-section').style.display = 'none';
+    document.getElementById('email-section').style.display = 'block';
+  }
+
+  async function submitEmail() {
+    const email = document.getElementById('email-input').value.trim();
+    const errorEl = document.getElementById('email-error');
+    const btn = document.getElementById('submit-btn');
+
+    if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+      errorEl.style.display = 'block';
+      return;
+    }
+    errorEl.style.display = 'none';
+    btn.disabled = true;
+    btn.textContent = 'Building your calendar...';
+
+    try {
+      await fetch('/api/subscribe', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email })
+      });
+    } catch(e) { /* silent — don't block results */ }
+
+    document.getElementById('email-section').style.display = 'none';
+    document.getElementById('results-section').style.display = 'block';
+    generateCalendar();
+  }
+
+  async function generateCalendar() {
+    const payload = {
+      niche: answers[0],
+      stage: answers[1],
+      platform: answers[2],
+      frequency: answers[3],
+      goal: answers[4]
+    };
+
+    document.getElementById('results-subtitle').textContent =
+      `${payload.niche} · ${payload.platform} · ${payload.frequency}`;
+
+    try {
+      const res = await fetch('/api/generate', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload)
+      });
+      const data = await res.json();
+      renderCalendar(data.calendar);
+    } catch(e) {
+      renderCalendar(null);
+    }
+  }
+
+  function renderCalendar(calendar) {
+    document.getElementById('loading-state').style.display = 'none';
+    document.getElementById('calendar-output').style.display = 'block';
+    const grid = document.getElementById('calendar-grid');
+
+    if (!calendar || !Array.isArray(calendar)) {
+      grid.innerHTML = '<p style="color:#e53e3e;text-align:center;">Something went wrong generating your calendar. Please refresh and try again.</p>';
+      return;
+    }
+
+    const weekLabels = ['Week 1', 'Week 2', 'Week 3', 'Week 4'];
+    let html = '';
+    calendar.forEach((day, i) => {
+      if (i % 7 === 0) html += `<div class="week-label">${weekLabels[Math.floor(i/7)] || 'Week ' + (Math.floor(i/7)+1)}</div>`;
+      html += `
+        <div class="day-card">
+          <div class="day-header">
+            <div class="day-number">${day.day}</div>
+            <div class="day-type">${day.type}</div>
+          </div>
+          <div class="day-idea">${day.idea}</div>
+          <div class="day-hook">Hook: "${day.hook}"</div>
+        </div>`;
+    });
+    grid.innerHTML = html;
+  }
 </script>
 </body>
 </html>
